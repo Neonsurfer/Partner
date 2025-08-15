@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Accessors(chain = true)
-public class SimpleEventDto {
-    List<SeatDto> data;
+public class ExtendedEventDto {
     Boolean success;
+    List<EventDto> data;
 }

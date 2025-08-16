@@ -1,13 +1,19 @@
 package com.simple.partner.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Data
 @Accessors(chain = true)
-public class SimpleEventDto {
-    List<SeatDto> data;
-    Boolean success;
+@EqualsAndHashCode(callSuper = true)
+public class SimpleEventDto extends BaseDto {
+    Long eventId;
+    List<SeatDto> seats;
+
+    public SimpleEventDto(Boolean success) {
+        this.success = success;
+    }
 }

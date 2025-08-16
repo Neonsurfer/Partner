@@ -1,9 +1,14 @@
 package com.simple.partner.service;
 
 import com.simple.partner.entity.ExtendedEventDto;
+import com.simple.partner.entity.ReserveDto;
+import com.simple.partner.entity.SeatDto;
 import com.simple.partner.entity.SimpleEventDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.security.SecureRandom;
+import java.util.Optional;
 
 @Service
 public class PartnerService {
@@ -34,10 +39,26 @@ public class PartnerService {
             return testDataUtil.getMockFirstEvent();
         } else if (eventId == 2L) {
             return testDataUtil.getMockSecondEvent();
-        } else {
+        } else if (eventId == 3L) {
             return testDataUtil.getMockThirdEvent();
+        } else {
+            return null;
         }
     }
 
 
+    public ReserveDto reserveByEventAndSeat(Long eventId, Long seatId) {
+        SimpleEventDto dto = getEventById(eventId);
+        if (dto == null) {
+            return new ReserveDto(false, 90001);
+        }
+        Optional<SeatDto> optionalSeat = dto.getSeats().stream().filter(t -> t.getId().equals("S" + seatId)).findFirst();
+        if (optionalSeat.isEmpty()) {
+            return new ReserveDto(false, 90002);
+        } else if (optionalSeat.get().getReserved())
+            return new ReserveDto(false, 90003);
+        else {
+            return new ReserveDto(true, new SecureRandom().nextLong());
+        }
+    }
 }

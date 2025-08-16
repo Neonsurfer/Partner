@@ -1,14 +1,12 @@
 package com.simple.partner.controller;
 
 import com.simple.partner.entity.ExtendedEventDto;
+import com.simple.partner.entity.ReserveDto;
 import com.simple.partner.entity.SimpleEventDto;
 import com.simple.partner.service.PartnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("partner")
 public class PartnerController {
@@ -22,14 +20,16 @@ public class PartnerController {
         return service.getEvents();
     }
 
-    ;
-
     @GetMapping("/getEvent/{eventId}")
     @ResponseStatus(HttpStatus.OK)
     public SimpleEventDto getEventById(@PathVariable Long eventId) {
         return service.getEventById(eventId);
     }
 
-    ;
+    @PostMapping("/reserve/{eventId}/{seatId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ReserveDto reserve(@PathVariable Long eventId, @PathVariable Long seatId) {
+        return service.reserveByEventAndSeat(eventId, seatId);
+    }
 
 }

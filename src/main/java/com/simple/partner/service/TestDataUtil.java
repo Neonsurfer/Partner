@@ -1,9 +1,9 @@
 package com.simple.partner.service;
 
-import com.simple.partner.entity.EventDto;
-import com.simple.partner.entity.ExtendedEventDto;
-import com.simple.partner.entity.SeatDto;
-import com.simple.partner.entity.SimpleEventDto;
+import com.simple.partner.dto.EventDto;
+import com.simple.partner.dto.ExtendedEventDto;
+import com.simple.partner.dto.SeatDto;
+import com.simple.partner.dto.SimpleEventDto;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

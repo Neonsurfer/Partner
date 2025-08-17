@@ -1,4 +1,4 @@
-package com.simple.partner.entity;
+package com.simple.partner.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -7,5 +7,5 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class BaseDto {
     Boolean success;
-    
+
 }

@@ -1,4 +1,4 @@
-package com.simple.partner.entity;
+package com.simple.partner.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

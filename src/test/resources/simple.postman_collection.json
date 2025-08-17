@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "c1444883-21a5-4ca9-976a-2beb6026de75",
+		"name": "simple",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31665470"
+	},
+	"item": [
+		{
+			"name": "listEvents",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/partner/getEvents",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"partner",
+						"getEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEventById",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/partner/getEvent/:eventId",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"partner",
+						"getEvent",
+						":eventId"
+					],
+					"variable": [
+						{
+							"key": "eventId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reserveByEventAndSeat",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/partner/reserve/:eventId/:seatId",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"partner",
+						"reserve",
+						":eventId",
+						":seatId"
+					],
+					"variable": [
+						{
+							"key": "eventId",
+							"value": "3"
+						},
+						{
+							"key": "seatId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

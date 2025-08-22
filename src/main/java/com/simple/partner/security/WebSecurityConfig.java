@@ -65,7 +65,7 @@ public class WebSecurityConfig {
             if (INTERNAL_TOKEN.equals(token)) {
                 return "internal-service";
             }
-            return null;
+            return "external-service";
         }
 
         @Override

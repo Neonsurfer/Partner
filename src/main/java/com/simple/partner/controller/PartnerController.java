@@ -1,9 +1,10 @@
 package com.simple.partner.controller;
 
-import com.simple.partner.dto.ExtendedEventDto;
-import com.simple.partner.dto.ReserveDto;
-import com.simple.partner.dto.SimpleEventDto;
+
 import com.simple.partner.service.PartnerService;
+import com.simple.simpleLib.dto.ExtendedEventDto;
+import com.simple.simpleLib.dto.ReserveDto;
+import com.simple.simpleLib.dto.SimpleEventDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

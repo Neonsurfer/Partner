@@ -1,9 +1,9 @@
 package com.simple.partner.service;
 
-import com.simple.partner.dto.ExtendedEventDto;
-import com.simple.partner.dto.ReserveDto;
-import com.simple.partner.dto.SeatDto;
-import com.simple.partner.dto.SimpleEventDto;
+import com.simple.simpleLib.dto.ExtendedEventDto;
+import com.simple.simpleLib.dto.ReserveDto;
+import com.simple.simpleLib.dto.SeatDto;
+import com.simple.simpleLib.dto.SimpleEventDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

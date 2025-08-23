@@ -1,5 +1,8 @@
 package com.simple.partner.service;
 
+import com.simple.partner.error.EventNotFoundException;
+import com.simple.partner.error.SeatNotFoundException;
+import com.simple.partner.error.SeatTakenException;
 import com.simple.simpleLib.dto.ExtendedEventDto;
 import com.simple.simpleLib.dto.ReserveDto;
 import com.simple.simpleLib.dto.SeatDto;
@@ -50,13 +53,13 @@ public class PartnerService {
     public ReserveDto reserveByEventAndSeat(Long eventId, Long seatId) {
         SimpleEventDto dto = getEventById(eventId);
         if (dto == null) {
-            return new ReserveDto(false, 90001);
+            throw new EventNotFoundException();
         }
         Optional<SeatDto> optionalSeat = dto.getSeats().stream().filter(t -> t.getId().equals("S" + seatId)).findFirst();
         if (optionalSeat.isEmpty()) {
-            return new ReserveDto(false, 90002);
+            throw new SeatNotFoundException();
         } else if (optionalSeat.get().getReserved())
-            return new ReserveDto(false, 90003);
+            throw new SeatTakenException();
         else {
             return new ReserveDto(true, new SecureRandom().nextLong());
         }

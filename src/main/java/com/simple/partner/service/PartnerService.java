@@ -36,7 +36,6 @@ public class PartnerService {
      * @param eventId id of event to be returned
      * @return event corresponding with id
      */
-    //TODO Miklós az if nem szép, keress rá szebb megoldást - Low priority
     public SimpleEventDto getEventById(Long eventId) {
         if (eventId == 1L) {
             return testDataUtil.getMockFirstEvent();
@@ -45,7 +44,7 @@ public class PartnerService {
         } else if (eventId == 3L) {
             return testDataUtil.getMockThirdEvent();
         } else {
-            return null;
+            throw new EventNotFoundException();
         }
     }
 

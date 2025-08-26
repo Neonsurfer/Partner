@@ -29,7 +29,7 @@ public class PartnerController {
 
     @PostMapping("/reserve/{eventId}/{seatId}")
     @ResponseStatus(HttpStatus.OK)
-    public ReserveDto reserve(@PathVariable Long eventId, @PathVariable Long seatId) {
+    public ReserveDto reserve(@PathVariable Long eventId, @PathVariable String seatId) {
         return service.reserveByEventAndSeat(eventId, seatId);
     }
 

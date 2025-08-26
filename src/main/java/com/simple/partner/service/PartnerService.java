@@ -49,12 +49,12 @@ public class PartnerService {
     }
 
 
-    public ReserveDto reserveByEventAndSeat(Long eventId, Long seatId) {
+    public ReserveDto reserveByEventAndSeat(Long eventId, String seatId) {
         SimpleEventDto dto = getEventById(eventId);
         if (dto == null) {
             throw new EventNotFoundException();
         }
-        Optional<SeatDto> optionalSeat = dto.getSeats().stream().filter(t -> t.getId().equals("S" + seatId)).findFirst();
+        Optional<SeatDto> optionalSeat = dto.getSeats().stream().filter(t -> t.getId().equals(seatId)).findFirst();
         if (optionalSeat.isEmpty()) {
             throw new SeatNotFoundException();
         } else if (optionalSeat.get().getReserved())

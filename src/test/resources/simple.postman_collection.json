@@ -7,7 +7,35 @@
 	},
 	"item": [
 		{
-			"name": "listEvents",
+			"name": "ticket/getEvents",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/ticket/getEvents",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"ticket",
+						"getEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticket/getEventById",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -33,20 +61,28 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/partner/getEvents",
+					"raw": "localhost:8082/ticket/getEvent/:eventId",
 					"host": [
-						"{{host}}"
+						"localhost"
 					],
+					"port": "8082",
 					"path": [
-						"partner",
-						"getEvents"
+						"ticket",
+						"getEvent",
+						":eventId"
+					],
+					"variable": [
+						{
+							"key": "eventId",
+							"value": "3"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "getEventById",
+			"name": "partner/getEventById",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -84,7 +120,7 @@
 					"variable": [
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "3"
 						}
 					]
 				}
@@ -92,7 +128,7 @@
 			"response": []
 		},
 		{
-			"name": "reserveByEventAndSeat",
+			"name": "partner/reserveByEventAndSeat",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -136,6 +172,177 @@
 						{
 							"key": "seatId",
 							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partner/getEvents",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/partner/getEvents",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"partner",
+						"getEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "core/getUserById",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/core/find/:userId",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"core",
+						"find",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "core/list",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Internal-Token",
+						"value": "simple",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/core/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"core",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/pay",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Token",
+						"value": "dGVzenQuYWxhZGFyQG90cG1vYmlsLmNvbSYxMDAwJkY2N0MyQkNCRkNGQTMwRkNDQjM2RjcyRENBMjJBODE3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/api/pay/:eventId/:seatId/:cardId",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"pay",
+						":eventId",
+						":seatId",
+						":cardId"
+					],
+					"variable": [
+						{
+							"key": "eventId",
+							"value": "1"
+						},
+						{
+							"key": "seatId",
+							"value": "S2"
+						},
+						{
+							"key": "cardId",
+							"value": "C0001"
 						}
 					]
 				}
